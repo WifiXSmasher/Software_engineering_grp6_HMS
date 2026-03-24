@@ -1,0 +1,30 @@
+<h2>Nurse Roster</h2>
+
+<button onclick="load()">Load My Doctor Roster</button>
+
+<pre id="out"></pre>
+
+<script>
+
+function load(){
+
+let nurseId=localStorage.getItem("userId")
+
+fetch("http://localhost:8008/nurses/"+nurseId)
+.then(r=>r.json())
+.then(nurse=>{
+
+let doctorId=nurse.doctor.doctorId
+
+fetch("http://localhost:8008/roster?doctorId="+doctorId)
+.then(r=>r.json())
+.then(data=>{
+document.getElementById("out").innerText=
+JSON.stringify(data,null,2)
+})
+
+})
+
+}
+
+</script>

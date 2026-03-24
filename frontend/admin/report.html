@@ -1,0 +1,19 @@
+<h2>Admin Report</h2>
+
+<button onclick="load()">Load Report</button>
+
+<pre id="out"></pre>
+
+<script>
+
+function load(){
+
+fetch("http://localhost:8008/admin/report")
+.then(r=>r.json())
+.then(data=>{
+out.innerText=JSON.stringify(data,null,2)
+})
+
+}
+
+</script>

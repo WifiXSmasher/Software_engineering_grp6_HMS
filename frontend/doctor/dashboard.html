@@ -1,0 +1,22 @@
+<h2>Doctor Dashboard</h2>
+
+<button onclick="loadRoster()">View My Roster</button>
+
+<pre id="out"></pre>
+
+<script>
+
+function loadRoster(){
+
+let id=localStorage.getItem("userId")
+
+fetch("http://localhost:8008/roster?doctorId="+id)
+.then(r=>r.json())
+.then(data=>{
+document.getElementById("out").innerText=
+JSON.stringify(data,null,2)
+})
+
+}
+
+</script>

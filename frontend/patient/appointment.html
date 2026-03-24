@@ -1,0 +1,27 @@
+<h2>Book Appointment</h2>
+
+Patient ID <input id="pid"><br>
+Doctor ID <input id="did"><br>
+
+Start <input id="start"><br>
+End <input id="end"><br>
+
+<button onclick="book()">Book</button>
+
+<script>
+
+function book(){
+
+let url="http://localhost:8008/appointments/book?"+
+"patientId="+pid.value+
+"&doctorId="+did.value+
+"&start="+start.value+
+"&end="+end.value;
+
+fetch(url,{method:"POST"})
+.then(r=>r.json())
+.then(d=>alert(JSON.stringify(d)))
+
+}
+
+</script>

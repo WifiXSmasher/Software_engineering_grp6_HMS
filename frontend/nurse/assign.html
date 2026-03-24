@@ -1,0 +1,20 @@
+<h2>Head Nurse Assignment</h2>
+
+Nurse ID <input id="nid"><br>
+Doctor ID <input id="did"><br>
+
+<button onclick="assign()">Assign</button>
+
+<script>
+
+function assign(){
+
+fetch("http://localhost:8008/nurses/assign?nurseId="+
+nid.value+"&doctorId="+did.value,
+{method:"POST"})
+.then(r=>r.json())
+.then(d=>alert(JSON.stringify(d)))
+
+}
+
+</script>

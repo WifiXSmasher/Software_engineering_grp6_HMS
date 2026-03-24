@@ -9,9 +9,10 @@ import java.util.List;
 public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
 
     List<Appointment> findByDoctorDoctorIdAndSlotStart(Long doctorId, LocalDateTime slotStart);
+
     long countByDoctorDoctorIdAndSlotStartBetween(
-        Long doctorId,
-        LocalDateTime start,
-        LocalDateTime end
-);
+            Long doctorId,
+            LocalDateTime start,
+            LocalDateTime end
+    );
 }

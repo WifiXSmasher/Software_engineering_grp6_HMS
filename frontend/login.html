@@ -1,0 +1,47 @@
+<h1>Hospital Management System</h1>
+
+<h3>Login</h3>
+
+<select id="role">
+<option value="patient">Patient</option>
+<option value="doctor">Doctor</option>
+<option value="nurse">Nurse</option>
+<option value="headnurse">Head Nurse</option>
+<option value="admin">Admin</option>
+</select>
+
+<br><br>
+
+<input id="id" placeholder="User ID">
+
+<br><br>
+
+<button onclick="login()">Login</button>
+
+<script>
+
+function login(){
+
+let role=document.getElementById("role").value
+
+localStorage.setItem("role",role)
+localStorage.setItem("userId",document.getElementById("id").value)
+
+if(role==="admin")
+location.href="admin/dashboard.html"
+
+if(role==="patient")
+location.href="patient/dashboard.html"
+
+if(role==="doctor")
+location.href="doctor/dashboard.html"
+
+if(role==="nurse")
+location.href="nurse/roster.html"
+
+if(role==="headnurse")
+location.href="nurse/assign.html"
+
+}
+
+</script>
